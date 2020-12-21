@@ -1,4 +1,3 @@
-
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -15,6 +14,13 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.ImageIcon;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.SystemColor;
+import javax.swing.SwingConstants;
+import java.awt.Component;
 
 /*
  * To change this template, choose Tools | Templates
@@ -28,11 +34,9 @@ import javax.swing.JPanel;
 
 
  
-class TreeComponent extends JComponent
-{
+class TreeComponent extends JComponent {
     
-   public synchronized void setValues(GraphicalTree gt,char f,String v)
-   {
+   public synchronized void setValues(GraphicalTree gt,char f,String v) {
       this.tree = gt;
       flag = f;
       val = v;
@@ -40,36 +44,33 @@ class TreeComponent extends JComponent
    }
    
    
-   public synchronized void paintComponent(Graphics g) 
-   {
-       int f = 0,gap = 0;
-       switch(flag)
-       {
-           case 'i':
-                    tree.insert(val,g);
-                    gap = tree.depth(tree.root);
-                    gap = gap * gap * 10;
-                    tree.draw(tree.root, g ,getWidth() / 2, 50,getWidth() / 2, 50,0,gap);
-                    f = 1;
-                    break;
+   public synchronized void paintComponent(Graphics g) {
+      int f = 0,gap = 0;
+      switch(flag)
+      {
+          case 'i':
+        	  tree.insert(val,g);
+              gap = tree.depth(tree.root);
+              gap = gap * gap * 10;
+              tree.draw(tree.root, g ,getWidth() / 2, 50,getWidth() / 2, 50,0,gap);
+              f = 1;
+              break;      
            case 'd':
-                    if(tree.delete(val,g) == 1)
-                    {
-                        gap = tree.depth(tree.root);
-                        gap = gap * gap * 10;
-                        tree.draw(tree.root, g ,getWidth() / 2, 50,getWidth() / 2, 50,0,gap);
-                    }
-                    f = 1;
-                    break;
+              if(tree.delete(val,g) == 1) {
+            	  gap = tree.depth(tree.root);
+                  gap = gap * gap * 10;
+                  tree.draw(tree.root, g ,getWidth() / 2, 50,getWidth() / 2, 50,0,gap);
+              }
+                  f = 1;
+                  break;
            case 'f':
-                    if(tree.find(val,g) == 1)
-                    {
-                        gap = tree.depth(tree.root);
-                        gap = gap * gap * 10;
-                        tree.draw(tree.root, g ,getWidth() / 2, 50,getWidth() / 2, 50,0,gap);
+        	   if(tree.find(val,g) == 1) {
+        		   gap = tree.depth(tree.root);
+                   gap = gap * gap * 10;
+                   tree.draw(tree.root, g ,getWidth() / 2, 50,getWidth() / 2, 50,0,gap);
                         //JOptionPane.showMessageDialog(null, val+" Found..!", "alert", JOptionPane.ERROR_MESSAGE); 
-                    }
-                    else
+        	   }
+        	   else
                     {
                           // JOptionPane.showMessageDialog(null, val+" not found..!", "alert", JOptionPane.ERROR_MESSAGE); 
                     }
@@ -122,15 +123,22 @@ public class TreePanel extends javax.swing.JPanel {
         bstPanel = new javax.swing.JPanel();
         bstNorthPanel = new javax.swing.JPanel();
         bstInsertButton = new javax.swing.JButton();
+        bstInsertButton.setIcon(new ImageIcon(TreePanel.class.getResource("/image/insert.png")));
         bstDelButton = new javax.swing.JButton();
+        bstDelButton.setIcon(new ImageIcon(TreePanel.class.getResource("/image/delete.png")));
         bstFindButton = new javax.swing.JButton();
+        bstFindButton.setIcon(new ImageIcon(TreePanel.class.getResource("/image/find.png")));
         bstInsertText = new javax.swing.JTextField();
         bstDelText = new javax.swing.JTextField();
         bstFindText = new javax.swing.JTextField();
         bstSouthPanel = new javax.swing.JPanel();
         bstSlider = new javax.swing.JSlider();
         bstRunButton = new javax.swing.JButton();
+        bstRunButton.setBackground(SystemColor.inactiveCaptionBorder);
+        bstRunButton.setIcon(new ImageIcon(TreePanel.class.getResource("/image/run.png")));
         bstStepButton = new javax.swing.JButton();
+        bstStepButton.setBackground(Color.WHITE);
+        bstStepButton.setIcon(new ImageIcon(TreePanel.class.getResource("/image/step.png")));
         jSeparator3 = new javax.swing.JSeparator();
 
         setLayout(new java.awt.BorderLayout());
@@ -186,40 +194,38 @@ public class TreePanel extends javax.swing.JPanel {
         });
 
         javax.swing.GroupLayout bstNorthPanelLayout = new javax.swing.GroupLayout(bstNorthPanel);
-        bstNorthPanel.setLayout(bstNorthPanelLayout);
         bstNorthPanelLayout.setHorizontalGroup(
-            bstNorthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bstNorthPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(bstInsertText, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bstInsertButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(bstDelText, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bstDelButton)
-                .addGap(30, 30, 30)
-                .addComponent(bstFindText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bstFindButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(172, Short.MAX_VALUE))
+        	bstNorthPanelLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(bstNorthPanelLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(bstInsertText, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addComponent(bstInsertButton, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
+        			.addGap(18)
+        			.addComponent(bstDelText, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(bstDelButton)
+        			.addGap(22)
+        			.addComponent(bstFindText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addGap(18)
+        			.addComponent(bstFindButton)
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        bstNorthPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {bstDelText, bstFindText, bstInsertText});
-
         bstNorthPanelLayout.setVerticalGroup(
-            bstNorthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bstNorthPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(bstNorthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bstInsertButton)
-                    .addComponent(bstDelButton)
-                    .addComponent(bstFindButton)
-                    .addComponent(bstInsertText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bstDelText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bstFindText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+        	bstNorthPanelLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(bstNorthPanelLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addGroup(bstNorthPanelLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(bstInsertButton)
+        				.addComponent(bstDelButton)
+        				.addComponent(bstFindButton)
+        				.addComponent(bstInsertText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(bstDelText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(bstFindText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addContainerGap())
         );
+        bstNorthPanelLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {bstInsertText, bstDelText, bstFindText});
+        bstNorthPanel.setLayout(bstNorthPanelLayout);
 
         bstPanel.add(bstNorthPanel, java.awt.BorderLayout.PAGE_START);
 
@@ -235,32 +241,32 @@ public class TreePanel extends javax.swing.JPanel {
         bstStepButton.setText("Step");
 
         javax.swing.GroupLayout bstSouthPanelLayout = new javax.swing.GroupLayout(bstSouthPanel);
-        bstSouthPanel.setLayout(bstSouthPanelLayout);
         bstSouthPanelLayout.setHorizontalGroup(
-            bstSouthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bstSouthPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(bstRunButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(bstStepButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(159, 159, 159)
-                .addComponent(bstSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(jSeparator3)
+        	bstSouthPanelLayout.createParallelGroup(Alignment.TRAILING)
+        		.addGroup(bstSouthPanelLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(bstRunButton)
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addComponent(bstStepButton)
+        			.addGap(287)
+        			.addComponent(bstSlider, GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+        			.addContainerGap())
+        		.addComponent(jSeparator3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         );
         bstSouthPanelLayout.setVerticalGroup(
-            bstSouthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bstSouthPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(bstSouthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(bstSouthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(bstStepButton)
-                        .addComponent(bstRunButton))
-                    .addComponent(bstSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15))
+        	bstSouthPanelLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(bstSouthPanelLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(jSeparator3, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(bstSouthPanelLayout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(bstSouthPanelLayout.createParallelGroup(Alignment.BASELINE)
+        					.addComponent(bstRunButton)
+        					.addComponent(bstStepButton, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
+        				.addComponent(bstSlider, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
+        			.addGap(15))
         );
+        bstSouthPanel.setLayout(bstSouthPanelLayout);
 
         bstPanel.add(bstSouthPanel, java.awt.BorderLayout.SOUTH);
 

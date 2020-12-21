@@ -6,6 +6,8 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
@@ -312,31 +314,42 @@ public class StackPanel extends javax.swing.JPanel {
         stackArraySouthPanel = new javax.swing.JPanel();
         sArraySlider = new javax.swing.JSlider();
         sArrayPauseButton = new javax.swing.JButton();
+        sArrayPauseButton.setIcon(new ImageIcon(StackPanel.class.getResource("/image/pause.png")));
         sArrayStepButton = new javax.swing.JButton();
+        sArrayStepButton.setIcon(new ImageIcon(StackPanel.class.getResource("/image/step.png")));
         sArraySkipButton = new javax.swing.JButton();
+        sArraySkipButton.setIcon(new ImageIcon(StackPanel.class.getResource("/image/skip.png")));
         jSeparator3 = new javax.swing.JSeparator();
         stackArrayNorthPanel = new javax.swing.JPanel();
         pushButton = new javax.swing.JButton();
+        pushButton.setIcon(new ImageIcon(StackPanel.class.getResource("/image/push.png")));
         popButton = new javax.swing.JButton();
+        popButton.setIcon(new ImageIcon(StackPanel.class.getResource("/image/down.png")));
         sinputText = new javax.swing.JTextField();
         stackSizeButton = new javax.swing.JButton();
         stackSizeText = new javax.swing.JTextField();
         stackSizeLabel = new javax.swing.JLabel();
         stackResetButton = new javax.swing.JButton();
+        stackResetButton.setIcon(new ImageIcon(StackPanel.class.getResource("/image/reset.png")));
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         sLinkedPanel = new javax.swing.JPanel();
         stackLinkedNorthPanel1 = new javax.swing.JPanel();
         sLPushButton = new javax.swing.JButton();
+        sLPushButton.setIcon(new ImageIcon(StackPanel.class.getResource("/image/push.png")));
         sListPopButton = new javax.swing.JButton();
+        sListPopButton.setIcon(new ImageIcon(StackPanel.class.getResource("/image/down.png")));
         sListInputText = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         stackLinkedSouthPanel1 = new javax.swing.JPanel();
         sLinkedSlider1 = new javax.swing.JSlider();
         sLinkedPauseButton = new javax.swing.JButton();
+        sLinkedPauseButton.setIcon(new ImageIcon(StackPanel.class.getResource("/image/pause.png")));
         sLinkedStepButton1 = new javax.swing.JButton();
+        sLinkedStepButton1.setIcon(new ImageIcon(StackPanel.class.getResource("/image/step.png")));
         sLinkedSkipButton = new javax.swing.JButton();
+        sLinkedSkipButton.setIcon(new ImageIcon(StackPanel.class.getResource("/image/skip.png")));
         jSeparator6 = new javax.swing.JSeparator();
 
         setLayout(new java.awt.BorderLayout());
@@ -370,11 +383,11 @@ public class StackPanel extends javax.swing.JPanel {
             stackArraySouthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stackArraySouthPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(sArrayPauseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sArrayPauseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sArraySkipButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sArraySkipButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sArrayStepButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sArrayStepButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(97, 97, 97)
                 .addComponent(sArraySlider, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
                 .addContainerGap())
@@ -479,7 +492,7 @@ public class StackPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(stackResetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(stackResetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         stackArrayNorthPanelLayout.setVerticalGroup(
@@ -593,11 +606,11 @@ public class StackPanel extends javax.swing.JPanel {
             stackLinkedSouthPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stackLinkedSouthPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(sLinkedPauseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sLinkedPauseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sLinkedSkipButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sLinkedSkipButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sLinkedStepButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sLinkedStepButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(97, 97, 97)
                 .addComponent(sLinkedSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
                 .addContainerGap())

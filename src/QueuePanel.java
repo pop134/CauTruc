@@ -9,6 +9,8 @@ import java.awt.geom.Rectangle2D;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
@@ -327,31 +329,42 @@ public class QueuePanel extends javax.swing.JPanel {
         };
         queueNorthPanel = new javax.swing.JPanel();
         enqueueButton = new javax.swing.JButton();
+        enqueueButton.setIcon(new ImageIcon(QueuePanel.class.getResource("/image/push.png")));
         dequeueButton = new javax.swing.JButton();
+        dequeueButton.setIcon(new ImageIcon(QueuePanel.class.getResource("/image/down.png")));
         qinputText = new javax.swing.JTextField();
         sizeButton = new javax.swing.JButton();
         sizeText = new javax.swing.JTextField();
         sizeLabel = new javax.swing.JLabel();
         resetButton = new javax.swing.JButton();
+        resetButton.setIcon(new ImageIcon(QueuePanel.class.getResource("/image/reset.png")));
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         queueSouthPanel = new javax.swing.JPanel();
         qArraySlider = new javax.swing.JSlider();
         qArrayPauseButton = new javax.swing.JButton();
+        qArrayPauseButton.setIcon(new ImageIcon(QueuePanel.class.getResource("/image/pause.png")));
         qArrayStepButton = new javax.swing.JButton();
+        qArrayStepButton.setIcon(new ImageIcon(QueuePanel.class.getResource("/image/step.png")));
         qArraySkipButton = new javax.swing.JButton();
+        qArraySkipButton.setIcon(new ImageIcon(QueuePanel.class.getResource("/image/skip.png")));
         jSeparator3 = new javax.swing.JSeparator();
         qLinkedPanel = new javax.swing.JPanel();
         queueNorthLinkedPanel = new javax.swing.JPanel();
         qListEnqueueButton = new javax.swing.JButton();
+        qListEnqueueButton.setIcon(new ImageIcon(QueuePanel.class.getResource("/image/push.png")));
         dequeueButton1 = new javax.swing.JButton();
+        dequeueButton1.setIcon(new ImageIcon(QueuePanel.class.getResource("/image/down.png")));
         qListinputText = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         queueSouthLinkedPanel = new javax.swing.JPanel();
         qLinkedSlider = new javax.swing.JSlider();
         qLinkedPauseButton = new javax.swing.JButton();
+        qLinkedPauseButton.setIcon(new ImageIcon(QueuePanel.class.getResource("/image/pause.png")));
         qLinkedStepButton = new javax.swing.JButton();
+        qLinkedStepButton.setIcon(new ImageIcon(QueuePanel.class.getResource("/image/step.png")));
         qLinkedSkipButton = new javax.swing.JButton();
+        qLinkedSkipButton.setIcon(new ImageIcon(QueuePanel.class.getResource("/image/skip.png")));
         jSeparator6 = new javax.swing.JSeparator();
 
         setLayout(new java.awt.BorderLayout());
@@ -443,7 +456,7 @@ public class QueuePanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         queueNorthPanelLayout.setVerticalGroup(
@@ -489,11 +502,11 @@ public class QueuePanel extends javax.swing.JPanel {
             queueSouthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, queueSouthPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(qArrayPauseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(qArrayPauseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(qArraySkipButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(qArraySkipButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(qArrayStepButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(qArrayStepButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(97, 97, 97)
                 .addComponent(qArraySlider, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
                 .addContainerGap())
@@ -598,11 +611,11 @@ public class QueuePanel extends javax.swing.JPanel {
             queueSouthLinkedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, queueSouthLinkedPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(qLinkedPauseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(qLinkedPauseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(qLinkedSkipButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(qLinkedSkipButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(qLinkedStepButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(qLinkedStepButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(97, 97, 97)
                 .addComponent(qLinkedSlider, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
                 .addContainerGap())

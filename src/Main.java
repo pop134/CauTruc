@@ -3,6 +3,8 @@ import java.awt.BorderLayout;
 import java.awt.Toolkit;
 import javax.swing.BoxLayout;
 
+import sun.print.BackgroundLookupListener;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -15,7 +17,6 @@ import javax.swing.BoxLayout;
 public class Main extends javax.swing.JFrame {
 
     static listPanel lp;
-    static sortingPanel sp;
     static StackPanel stp;
     static QueuePanel qp;
     static TreePanel tp;
@@ -24,7 +25,6 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         mainCenterPanel =  new javax.swing.JPanel();
         lp = new listPanel();
-        sp = new sortingPanel();
         stp = new StackPanel();
         qp = new QueuePanel();
         tp = new TreePanel();
@@ -35,20 +35,17 @@ public class Main extends javax.swing.JFrame {
         this.setExtendedState(this.getExtendedState() | javax.swing.JFrame.MAXIMIZED_BOTH);
        
                 
-       setPanelSize();
-       mainCenterPanel.setLayout(new BoxLayout(mainCenterPanel, BoxLayout.PAGE_AXIS));
+        setPanelSize();
+        mainCenterPanel.setLayout(new BoxLayout(mainCenterPanel, BoxLayout.PAGE_AXIS));
         
         mainCenterPanel.add(lp);
         mainCenterPanel.add(stp);
-        mainCenterPanel.add(sp);
         mainCenterPanel.add(tp);
         mainCenterPanel.add(qp);
-        add(mainCenterPanel,BorderLayout.CENTER);
+        getContentPane().add(mainCenterPanel,BorderLayout.CENTER);
         hidePanels();
         this.pack();
        
-        sp.setVisible(true);
-   
         
     }
 
@@ -79,7 +76,7 @@ public class Main extends javax.swing.JFrame {
                 formWindowStateChanged(evt);
             }
         });
-
+        
         jMenu1.setText("Data Structure");
 
         llMenu.setText("Linked List");
@@ -114,12 +111,6 @@ public class Main extends javax.swing.JFrame {
         });
         jMenu1.add(queueMenu);
 
-        arrayMenu.setText("Array(Sorting)");
-        arrayMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                arrayMenuActionPerformed(evt);
-            }
-        });
         jMenu1.add(arrayMenu);
 
         jMenuBar1.add(jMenu1);
@@ -137,7 +128,6 @@ public class Main extends javax.swing.JFrame {
         int h = this.getHeight();//- animationPanel.getHeight();
         mainCenterPanel.setSize(w,h);
         
-        sp.setSize(w,h);
         lp.setSize(w,h);
         stp.setSize(w,h);
         qp.setSize(w,h);
@@ -148,7 +138,6 @@ public class Main extends javax.swing.JFrame {
     }
     void hidePanels()
     {
-        sp.setVisible(false);
         lp.setVisible(false);
         stp.setVisible(false);
         qp.setVisible(false);
@@ -176,10 +165,6 @@ public class Main extends javax.swing.JFrame {
         qp.setVisible(true);
     }//GEN-LAST:event_queueMenuActionPerformed
 
-    private void arrayMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arrayMenuActionPerformed
-        hidePanels();
-        sp.setVisible(true);
-    }//GEN-LAST:event_arrayMenuActionPerformed
 
     private void formWindowStateChanged(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowStateChanged
         //setPanelSize();// TODO add your handling code here:

@@ -5,6 +5,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComponent;
 
 /*
@@ -45,8 +48,8 @@ class DoublyCircular extends JComponent{
              
            g.drawRect(x, y, 10, 30); 
            g.drawRect(x+10, y, 30, 30);
-            g.drawRect(x+40, y, 10, 30);
-            g.drawString(s, x+15, y+20);
+           g.drawRect(x+40, y, 10, 30);
+           g.drawString(s, x+15, y+20);
      }
       private void drawHead(Graphics g, int x, int y){
           g.setColor(Color.RED);
@@ -1257,6 +1260,7 @@ public class listPanel extends javax.swing.JPanel {
     DoublyCircular dcir;
     
     SingleLinkedList listA, listCircular, dlistnull, dlistCircular;
+	private JButton singlydeleteButton;
     public listPanel() {
         initComponents();
         
@@ -1312,55 +1316,80 @@ public class listPanel extends javax.swing.JPanel {
         };
         singlyListNorthPanel = new javax.swing.JPanel();
         singlyLengthButton = new javax.swing.JButton();
+        singlyLengthButton.setIcon(new ImageIcon(listPanel.class.getResource("/image/length.png")));
         singlyaddNodeText = new javax.swing.JTextField();
         singlyaddButton = new javax.swing.JButton();
+        singlyaddButton.setIcon(new ImageIcon(listPanel.class.getResource("/image/insert.png")));
         qinputText18 = new javax.swing.JTextField();
         jButton31 = new javax.swing.JButton();
+        jButton31.setIcon(new ImageIcon(listPanel.class.getResource("/image/delete.png")));
         singlyListSouthPanel = new javax.swing.JPanel();
         singlySlider = new javax.swing.JSlider();
         singlyPauseButton = new javax.swing.JButton();
+        singlyPauseButton.setIcon(new ImageIcon(listPanel.class.getResource("/image/pause.png")));
         singlyStepButton = new javax.swing.JButton();
+        singlyStepButton.setIcon(new ImageIcon(listPanel.class.getResource("/image/step.png")));
         singlySkipButton = new javax.swing.JButton();
+        singlySkipButton.setIcon(new ImageIcon(listPanel.class.getResource("/image/skip.png")));
         jSeparator3 = new javax.swing.JSeparator();
         singlyCircularPanel = new javax.swing.JPanel();
         singlyListNorthPanel1 = new javax.swing.JPanel();
         singlyLengthButton1 = new javax.swing.JButton();
+        singlyLengthButton1.setIcon(new ImageIcon(listPanel.class.getResource("/image/length.png")));
         singlyaddNodeText1 = new javax.swing.JTextField();
         singlyaddButton1 = new javax.swing.JButton();
+        singlyaddButton1.setIcon(new ImageIcon(listPanel.class.getResource("/image/insert.png")));
         qinputText21 = new javax.swing.JTextField();
         jButton37 = new javax.swing.JButton();
+        jButton37.setIcon(new ImageIcon(listPanel.class.getResource("/image/delete.png")));
         singlyListSouthPanel1 = new javax.swing.JPanel();
         singlySlider1 = new javax.swing.JSlider();
         singlyPauseButton1 = new javax.swing.JButton();
+        singlyPauseButton1.setIcon(new ImageIcon(listPanel.class.getResource("/image/pause.png")));
         singlyStepButton1 = new javax.swing.JButton();
+        singlyStepButton1.setIcon(new ImageIcon(listPanel.class.getResource("/image/step.png")));
         singlySkipButton1 = new javax.swing.JButton();
+        singlySkipButton1.setIcon(new ImageIcon(listPanel.class.getResource("/image/skip.png")));
         jSeparator7 = new javax.swing.JSeparator();
         doublyListPanel = new javax.swing.JPanel();
         doublyListNorthPanel = new javax.swing.JPanel();
         singlyLengthButton4 = new javax.swing.JButton();
+        singlyLengthButton4.setIcon(new ImageIcon(listPanel.class.getResource("/image/length.png")));
         doublyListAddText = new javax.swing.JTextField();
         doublyListAddButton = new javax.swing.JButton();
+        doublyListAddButton.setIcon(new ImageIcon(listPanel.class.getResource("/image/insert.png")));
         doublyListDelText = new javax.swing.JTextField();
         doublyListDelButton = new javax.swing.JButton();
+        doublyListDelButton.setIcon(new ImageIcon(listPanel.class.getResource("/image/delete.png")));
         doublyListSouthPanel = new javax.swing.JPanel();
         singlySlider2 = new javax.swing.JSlider();
         singlyPauseButton2 = new javax.swing.JButton();
+        singlyPauseButton2.setIcon(new ImageIcon(listPanel.class.getResource("/image/pause.png")));
         singlyStepButton2 = new javax.swing.JButton();
+        singlyStepButton2.setIcon(new ImageIcon(listPanel.class.getResource("/image/step.png")));
         singlySkipButton2 = new javax.swing.JButton();
+        singlySkipButton2.setIcon(new ImageIcon(listPanel.class.getResource("/image/skip.png")));
+        
         jSeparator8 = new javax.swing.JSeparator();
         doublyCircularPanel = new javax.swing.JPanel();
         doublyCircularListSouthPanel1 = new javax.swing.JPanel();
         singlySlider3 = new javax.swing.JSlider();
         singlyPauseButton3 = new javax.swing.JButton();
+        singlyPauseButton3.setIcon(new ImageIcon(listPanel.class.getResource("/image/pause.png")));
         singlyStepButton3 = new javax.swing.JButton();
+        singlyStepButton3.setIcon(new ImageIcon(listPanel.class.getResource("/image/step.png")));
         singlySkipButton3 = new javax.swing.JButton();
+        singlySkipButton3.setIcon(new ImageIcon(listPanel.class.getResource("/image/skip.png")));
         jSeparator9 = new javax.swing.JSeparator();
         doublyCirListNorthPanel = new javax.swing.JPanel();
         singlyLengthButton5 = new javax.swing.JButton();
+        singlyLengthButton5.setIcon(new ImageIcon(listPanel.class.getResource("/image/length.png")));
         doublyCirListAddText = new javax.swing.JTextField();
         doublyCirListAddButton = new javax.swing.JButton();
+        doublyCirListAddButton.setIcon(new ImageIcon(listPanel.class.getResource("/image/insert.png")));
         doublyCirListDelText = new javax.swing.JTextField();
         doublyCirListDelButton = new javax.swing.JButton();
+        doublyCirListDelButton.setIcon(new ImageIcon(listPanel.class.getResource("/image/delete.png")));
 
         setLayout(new java.awt.BorderLayout());
 
@@ -1408,6 +1437,7 @@ public class listPanel extends javax.swing.JPanel {
         jButton31.setFocusable(false);
         jButton31.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton31.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton31.setIcon(new ImageIcon(listPanel.class.getResource("/image/delete.png")));
         jButton31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton31ActionPerformed(evt);
@@ -1465,11 +1495,11 @@ public class listPanel extends javax.swing.JPanel {
             singlyListSouthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, singlyListSouthPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(singlyPauseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(singlyPauseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(singlySkipButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(singlySkipButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(singlyStepButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(singlyStepButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(97, 97, 97)
                 .addComponent(singlySlider, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
                 .addContainerGap())
@@ -1587,11 +1617,11 @@ public class listPanel extends javax.swing.JPanel {
             singlyListSouthPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, singlyListSouthPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(singlyPauseButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(singlyPauseButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(singlySkipButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(singlySkipButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(singlyStepButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(singlyStepButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(97, 97, 97)
                 .addComponent(singlySlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
                 .addContainerGap())
@@ -1712,11 +1742,11 @@ public class listPanel extends javax.swing.JPanel {
             doublyListSouthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, doublyListSouthPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(singlyPauseButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(singlyPauseButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(singlySkipButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(singlySkipButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(singlyStepButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(singlyStepButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(97, 97, 97)
                 .addComponent(singlySlider2, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
                 .addContainerGap())
@@ -1763,11 +1793,11 @@ public class listPanel extends javax.swing.JPanel {
             doublyCircularListSouthPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, doublyCircularListSouthPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(singlyPauseButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(singlyPauseButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(singlySkipButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(singlySkipButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(singlyStepButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(singlyStepButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(97, 97, 97)
                 .addComponent(singlySlider3, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
                 .addContainerGap())
