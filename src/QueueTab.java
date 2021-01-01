@@ -355,7 +355,11 @@ public class QueueTab extends javax.swing.JPanel {
         textPanel2 = new javax.swing.JPanel(new BorderLayout());
 
         discribeText = new javax.swing.JTextArea(" - Định nghĩa hàng đợi (queue): ", 10, 30);
-        discribeText.append("hàng đợi là một cấu trúc dữ liệu trừu tượng mà trong đó việc xóa dữ liệu được thực hiện ở dữ liệu đầu tiên được thêm vào");
+        discribeText.append("hàng đợi là một cấu trúc dữ liệu trừu tượng mà trong đó việc xóa dữ liệu được thực hiện ở dữ liệu đầu tiên được thêm vào\n");
+        discribeText.append(" - Thao tác chính:\n");
+        discribeText.append("ENQUEUE: Thêm phần tử mới vào cuối hàng đợi\n");
+        discribeText.append("DEQUEUE: Xóa phần tử ở đầu hàng đợi\n");
+
         discribeText.setLineWrap(true);
         discribeText.setWrapStyleWord(true);
 
@@ -385,7 +389,11 @@ public class QueueTab extends javax.swing.JPanel {
         atextPanel2 = new javax.swing.JPanel(new BorderLayout());
 
         adiscribeText = new javax.swing.JTextArea(" - Định nghĩa hàng đợi (queue): ", 10, 30);
-        adiscribeText.append("hàng đợi là một cấu trúc dữ liệu trừu tượng mà trong đó việc xóa dữ liệu được thực hiện ở dữ liệu đầu tiên được thêm vào");
+        adiscribeText.append("hàng đợi là một cấu trúc dữ liệu trừu tượng mà trong đó việc xóa dữ liệu được thực hiện ở dữ liệu đầu tiên được thêm vào\n");
+        adiscribeText.append(" - Thao tác chính:\n");
+        adiscribeText.append("ENQUEUE: Thêm phần tử mới vào cuối hàng đợi\n");
+        adiscribeText.append("DEQUEUE: Xóa phần tử ở đầu hàng đợi\n");
+
         adiscribeText.setLineWrap(true);
         adiscribeText.setWrapStyleWord(true);
 

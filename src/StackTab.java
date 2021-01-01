@@ -359,7 +359,11 @@ public class StackTab extends javax.swing.JPanel {
         textPanel2 = new javax.swing.JPanel(new BorderLayout());
 
         discribeText = new javax.swing.JTextArea(" - Định nghĩa ngăn xếp (stack): ", 10, 30);
-        discribeText.append("ngăn xếp là một cấu trúc dữ liệu trừu tượng mà trong đó các hoạt động chèn và xóa được thực hiện chỉ ở vị trí trên cùng");
+        discribeText.append("ngăn xếp là một cấu trúc dữ liệu trừu tượng mà trong đó các hoạt động chèn và xóa được thực hiện chỉ ở vị trí trên cùng\n");
+        discribeText.append(" - Thao tác chính:\n");
+        discribeText.append("PUSH: Thêm phần tử mới vào đầu ngăn xếp\n");
+        discribeText.append("POP: Xóa phần tử ở đầu ngăn xếp\n");
+
         discribeText.setLineWrap(true);
         discribeText.setWrapStyleWord(true);
 
@@ -389,7 +393,11 @@ public class StackTab extends javax.swing.JPanel {
         atextPanel2 = new javax.swing.JPanel(new BorderLayout());
 
         adiscribeText = new javax.swing.JTextArea(" - Định nghĩa ngăn xếp (stack): ", 10, 30);
-        adiscribeText.append("ngăn xếp là một cấu trúc dữ liệu trừu tượng mà trong đó các hoạt động chèn và xóa được thực hiện chỉ ở vị trí trên cùng");
+        adiscribeText.append("ngăn xếp là một cấu trúc dữ liệu trừu tượng mà trong đó các hoạt động chèn và xóa được thực hiện chỉ ở vị trí trên cùng\n");
+        adiscribeText.append(" - Thao tác chính:\n");
+        adiscribeText.append("PUSH: Thêm phần tử mới vào đầu ngăn xếp\n");
+        adiscribeText.append("POP: Xóa phần tử ở đầu ngăn xếp\n");
+
         adiscribeText.setLineWrap(true);
         adiscribeText.setWrapStyleWord(true);
 
