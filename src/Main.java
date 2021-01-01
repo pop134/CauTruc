@@ -13,25 +13,21 @@ import javax.swing.*;
  */
 public class Main extends javax.swing.JFrame {
 
-    static listPanel lp;
-    static StackPanel stp;
-    static QueuePanel qp;
-    static TreePanel tp;
+    static ListTab lp;
+    static StackTab stp;
+    static QueueTab qp;
+    static TreeTab tp;
     static javax.swing.JPanel mainCenterPanel;
 
     public Main() {
         initComponents();
         mainCenterPanel = new javax.swing.JPanel();
-        lp = new listPanel();
-        stp = new StackPanel();
-        qp = new QueuePanel();
-        tp = new TreePanel();
+        lp = new ListTab();
+        stp = new StackTab();
+        qp = new QueueTab();
+        tp = new TreeTab();
 
-
-        int x = (Toolkit.getDefaultToolkit().getScreenSize().width / 2);
-        int y = (Toolkit.getDefaultToolkit().getScreenSize().height / 2);
         this.setExtendedState(this.getExtendedState() | javax.swing.JFrame.MAXIMIZED_BOTH);
-
 
         setPanelSize();
         mainCenterPanel.setLayout(new BoxLayout(mainCenterPanel, BoxLayout.PAGE_AXIS));

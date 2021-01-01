@@ -2,13 +2,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
-import javax.swing.JComponent;
-import javax.swing.ImageIcon;
+import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.SystemColor;
-import javax.swing.SwingConstants;
 import java.awt.Component;
 
 
@@ -59,7 +56,7 @@ class TreeComponent extends JComponent {
 }
 
 
-public class TreePanel extends javax.swing.JPanel {
+public class TreeTab extends javax.swing.JPanel {
 
     /**
      * Creates new form TreePanel
@@ -67,7 +64,7 @@ public class TreePanel extends javax.swing.JPanel {
     TreeComponent comp;
     GraphicalTree gt;
 
-    public TreePanel() {
+    public TreeTab() {
         initComponents();
         comp = new TreeComponent();
         bstPanel.add(comp, BorderLayout.CENTER);
@@ -87,16 +84,20 @@ public class TreePanel extends javax.swing.JPanel {
         bstPanel = new javax.swing.JPanel();
         bstNorthPanel = new javax.swing.JPanel();
         bstInsertButton = new javax.swing.JButton();
-        bstInsertButton.setIcon(new ImageIcon(TreePanel.class.getResource("/image/insert.png")));
+        bstInsertButton.setIcon(new ImageIcon(TreeTab.class.getResource("/image/insert.png")));
         bstDelButton = new javax.swing.JButton();
-        bstDelButton.setIcon(new ImageIcon(TreePanel.class.getResource("/image/delete.png")));
+        bstDelButton.setIcon(new ImageIcon(TreeTab.class.getResource("/image/delete.png")));
         bstFindButton = new javax.swing.JButton();
-        bstFindButton.setIcon(new ImageIcon(TreePanel.class.getResource("/image/find.png")));
+        bstFindButton.setIcon(new ImageIcon(TreeTab.class.getResource("/image/find.png")));
+        bstResetButton = new javax.swing.JButton();
+        bstResetButton.setIcon(new ImageIcon(TreeTab.class.getResource("/image/reset.png")));
         bstInsertText = new javax.swing.JTextField();
         bstDelText = new javax.swing.JTextField();
         bstFindText = new javax.swing.JTextField();
         setLayout(new java.awt.BorderLayout());
 
+        bstResetButton.setText("Reset");
+        bstResetButton.addActionListener(this::setResetButtonActionPerformed);
         treeCenterPanel.setLayout(new javax.swing.BoxLayout(treeCenterPanel, javax.swing.BoxLayout.LINE_AXIS));
 
         bstPanel.setBackground(new java.awt.Color(254, 254, 254));
@@ -116,8 +117,37 @@ public class TreePanel extends javax.swing.JPanel {
             }
         });
 
+        textPanel = new javax.swing.JPanel(new BorderLayout());
+        textPanel1 = new javax.swing.JPanel(new BorderLayout());
+        textPanel2 = new javax.swing.JPanel(new BorderLayout());
 
+        discribeText = new javax.swing.JTextArea("- Định nghĩa cây (tree): ", 10, 30);
+        discribeText.append("cây là một cấu trúc dữ liệu gồm một tập hữu hạn các nút, giữa các nút có một quan hệ phân cấp gọi là quan hệ \"cha - con\". Nút mà không có cha được gọi là nút gốc, nút không có con được gọi là nút lá.\n");
+        discribeText.append("- Khái niệm cây nhị phân: Là cây mà mỗi nút có tối đa 2 cây con.\n" +
+                "- Khái niệm cây nhị phân tìm kiếm: Là cây nhị phân mà cây con bên trái có giá trị các nút nhỏ hơn nút cha (của cây con đó) và cây con bên phải có giá trị các nút lớn hơn nút cha (của cây con đó)\n");
+        discribeText.setLineWrap(true);
+        discribeText.setWrapStyleWord(true);
 
+        discribeText.setEditable(false);
+        discribeText.setEditable(false);
+
+        JScrollPane discribeTextScroll = new JScrollPane(discribeText);
+
+        runningText = new javax.swing.JTextArea(10, 30);
+        runningText.setLineWrap(true);
+        runningText.setWrapStyleWord(true);
+        runningText.setEditable(false);
+        JScrollPane runningTextScroll = new JScrollPane(runningText);
+
+        JLabel label = new JLabel("Định nghĩa");
+        textPanel1.add(label, BorderLayout.NORTH);
+        textPanel1.setBorder(getBorder());
+        textPanel1.add(discribeTextScroll, BorderLayout.CENTER);
+
+        textPanel2.add(runningTextScroll);
+
+        textPanel.add(textPanel1, BorderLayout.NORTH);
+        textPanel.add(textPanel2, BorderLayout.SOUTH);
         javax.swing.GroupLayout bstNorthPanelLayout = new javax.swing.GroupLayout(bstNorthPanel);
         bstNorthPanelLayout.setHorizontalGroup(
                 bstNorthPanelLayout.createParallelGroup(Alignment.LEADING)
@@ -134,6 +164,7 @@ public class TreePanel extends javax.swing.JPanel {
                                 .addComponent(bstFindText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18)
                                 .addComponent(bstFindButton)
+                                .addComponent(bstResetButton)
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         bstNorthPanelLayout.setVerticalGroup(
@@ -146,13 +177,17 @@ public class TreePanel extends javax.swing.JPanel {
                                         .addComponent(bstFindButton)
                                         .addComponent(bstInsertText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                         .addComponent(bstDelText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(bstFindText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(bstFindText, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(bstResetButton)
+
+                                )
                                 .addContainerGap())
         );
         bstNorthPanelLayout.linkSize(SwingConstants.HORIZONTAL, bstInsertText, bstDelText, bstFindText);
         bstNorthPanel.setLayout(bstNorthPanelLayout);
 
         bstPanel.add(bstNorthPanel, java.awt.BorderLayout.PAGE_START);
+        bstPanel.add(textPanel, BorderLayout.EAST);
         treePane.addTab("Binary Search Tree", bstPanel);
 
         treeCenterPanel.add(treePane);
@@ -170,6 +205,8 @@ public class TreePanel extends javax.swing.JPanel {
         bstFindButton.setEnabled(false);
 
         comp.setValues(gt, 'd', bstDelText.getText());
+        runningText.append("Nút " + bstDelText.getText() + " bị xóa khỏi cây\n");
+
         bstDelText.setText("");
 
         bstInsertButton.setEnabled(true);
@@ -184,14 +221,25 @@ public class TreePanel extends javax.swing.JPanel {
         bstFindButton.setEnabled(false);
 
         comp.setValues(gt, 'i', bstInsertText.getText());
+        runningText.append("Nút " + bstInsertText.getText() + " được thêm vào cây\n");
+
         bstInsertText.setText("");
 
         bstInsertButton.setEnabled(true);
         bstDelButton.setEnabled(true);
         bstFindButton.setEnabled(true);
-
+        bstResetButton.setEnabled(true);
     }//GEN-LAST:event_bstInsertButtonActionPerformed
 
+    private void setResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
+        bstInsertButton.setEnabled(true);
+        bstDelButton.setEnabled(false);
+        bstFindButton.setEnabled(false);
+        bstResetButton.setEnabled(false);
+        runningText.setText("");
+        gt = new GraphicalTree();
+        comp.setValues(gt, '0', "0");
+    }
 
     private void bstInsertTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bstInsertTextKeyPressed
         // TODO add your handling code here:
@@ -216,10 +264,16 @@ public class TreePanel extends javax.swing.JPanel {
     private javax.swing.JButton bstFindButton;
     private javax.swing.JTextField bstFindText;
     private javax.swing.JButton bstInsertButton;
+    private javax.swing.JButton bstResetButton;
     private javax.swing.JTextField bstInsertText;
     private javax.swing.JPanel bstNorthPanel;
     private javax.swing.JPanel bstPanel;
     private javax.swing.JPanel treeCenterPanel;
     private javax.swing.JTabbedPane treePane;
+    private javax.swing.JPanel textPanel;
+    private javax.swing.JPanel textPanel1;
+    private javax.swing.JPanel textPanel2;
+    private javax.swing.JTextArea discribeText;
+    private javax.swing.JTextArea runningText;
     // End of variables declaration//GEN-END:variables
 }

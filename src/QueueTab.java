@@ -3,9 +3,7 @@ import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.swing.ImageIcon;
-import javax.swing.JComponent;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 class QueueComponent extends JComponent {
     public synchronized void setValues(GraphicalArrayQueue qA) {
@@ -36,10 +34,10 @@ class QueueComponent extends JComponent {
             queue.t.setLine(tl, (getHeight() / 2) + 37, tl, (getHeight() / 2) + 80);
             qG.draw(queue.h);
             int h = (getHeight() / 2);
-            int []x = {hd, hd - 8, hd + 8, hd};
-            int []y = {h - 30, h - 50, h - 50, h - 30};
-            int []x1 = {tl, tl - 8, tl + 8, tl};
-            int []y1 = {h + 30, h + 50, h + 50, h + 30};
+            int[] x = {hd, hd - 8, hd + 8, hd};
+            int[] y = {h - 30, h - 50, h - 50, h - 30};
+            int[] x1 = {tl, tl - 8, tl + 8, tl};
+            int[] y1 = {h + 30, h + 50, h + 50, h + 30};
             g.fillPolygon(x, y, 4);
             qG.draw(queue.t);
             g.setColor(Color.red);
@@ -136,7 +134,7 @@ class QListComponent extends JComponent {
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(listPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(ListTab.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 g.setColor(Color.WHITE);
                 drawNode(g, final_x, final_y, "" + data);
@@ -250,7 +248,7 @@ class QListComponent extends JComponent {
 }
 
 
-public class QueuePanel extends javax.swing.JPanel {
+public class QueueTab extends javax.swing.JPanel {
 
     /**
      * Creates new form QueuePanel
@@ -260,7 +258,7 @@ public class QueuePanel extends javax.swing.JPanel {
     QListComponent lcomp;
     SingleLinkedList listA;
 
-    public QueuePanel() {
+    public QueueTab() {
         initComponents();
         sizeText.setText(null);
         lcomp = new QListComponent();
@@ -270,10 +268,10 @@ public class QueuePanel extends javax.swing.JPanel {
         enqueueButton.setEnabled(false);
         dequeueButton.setEnabled(false);
         resetButton.setEnabled(false);
+        resetButton2.setEnabled(false);
         qLinkedPanel.revalidate();
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         queueCenterPanel = new javax.swing.JPanel();
@@ -288,24 +286,26 @@ public class QueuePanel extends javax.swing.JPanel {
         };
         queueNorthPanel = new javax.swing.JPanel();
         enqueueButton = new javax.swing.JButton();
-        enqueueButton.setIcon(new ImageIcon(QueuePanel.class.getResource("/image/push.png")));
+        enqueueButton.setIcon(new ImageIcon(QueueTab.class.getResource("/image/push.png")));
         dequeueButton = new javax.swing.JButton();
-        dequeueButton.setIcon(new ImageIcon(QueuePanel.class.getResource("/image/down.png")));
+        dequeueButton.setIcon(new ImageIcon(QueueTab.class.getResource("/image/down.png")));
         qinputText = new javax.swing.JTextField();
         sizeButton = new javax.swing.JButton();
         sizeText = new javax.swing.JTextField();
         sizeLabel = new javax.swing.JLabel();
         resetButton = new javax.swing.JButton();
-        resetButton.setIcon(new ImageIcon(QueuePanel.class.getResource("/image/reset.png")));
+        resetButton.setIcon(new ImageIcon(QueueTab.class.getResource("/image/reset.png")));
+        resetButton2 = new javax.swing.JButton();
+        resetButton2.setIcon(new ImageIcon(QueueTab.class.getResource("/image/reset.png")));
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         qLinkedPanel = new javax.swing.JPanel();
 
         queueNorthLinkedPanel = new javax.swing.JPanel();
         qListEnqueueButton = new javax.swing.JButton();
-        qListEnqueueButton.setIcon(new ImageIcon(QueuePanel.class.getResource("/image/push.png")));
+        qListEnqueueButton.setIcon(new ImageIcon(QueueTab.class.getResource("/image/push.png")));
         dequeueButton1 = new javax.swing.JButton();
-        dequeueButton1.setIcon(new ImageIcon(QueuePanel.class.getResource("/image/down.png")));
+        dequeueButton1.setIcon(new ImageIcon(QueueTab.class.getResource("/image/down.png")));
         qListinputText = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
 
@@ -334,7 +334,6 @@ public class QueuePanel extends javax.swing.JPanel {
 
 
         sizeText.setColumns(5);
-        sizeText.addActionListener(this::sizeTextActionPerformed);
         sizeText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 sizeTextKeyPressed(evt);
@@ -343,10 +342,73 @@ public class QueuePanel extends javax.swing.JPanel {
 
         sizeLabel.setFont(new java.awt.Font("Ubuntu", Font.PLAIN, 18)); // NOI18N
         sizeLabel.setForeground(new java.awt.Color(241, 19, 19));
-        sizeLabel.setText("Queue Size:  ");
+        sizeLabel.setText("Kích thước:  ");
 
         resetButton.setText("Reset");
         resetButton.addActionListener(this::resetButtonActionPerformed);
+
+        resetButton2.setText("Reset");
+        resetButton2.addActionListener(this::setResetButton2ActionPerformed);
+
+        textPanel = new javax.swing.JPanel(new BorderLayout());
+        textPanel1 = new javax.swing.JPanel(new BorderLayout());
+        textPanel2 = new javax.swing.JPanel(new BorderLayout());
+
+        discribeText = new javax.swing.JTextArea(" - Định nghĩa hàng đợi (queue): ", 10, 30);
+        discribeText.append("hàng đợi là một cấu trúc dữ liệu trừu tượng mà trong đó việc xóa dữ liệu được thực hiện ở dữ liệu đầu tiên được thêm vào");
+        discribeText.setLineWrap(true);
+        discribeText.setWrapStyleWord(true);
+
+        discribeText.setEditable(false);
+        discribeText.setEditable(false);
+
+        JScrollPane discribeTextScroll = new JScrollPane(discribeText);
+
+        runningText = new javax.swing.JTextArea(10, 30);
+        runningText.setLineWrap(true);
+        runningText.setWrapStyleWord(true);
+        runningText.setEditable(false);
+        JScrollPane runningTextScroll = new JScrollPane(runningText);
+
+        JLabel label = new JLabel("Định nghĩa");
+        textPanel1.add(label, BorderLayout.NORTH);
+        textPanel1.setBorder(getBorder());
+        textPanel1.add(discribeTextScroll, BorderLayout.CENTER);
+
+        textPanel2.add(runningTextScroll);
+
+        textPanel.add(textPanel1, BorderLayout.NORTH);
+        textPanel.add(textPanel2, BorderLayout.SOUTH);
+
+        atextPanel = new javax.swing.JPanel(new BorderLayout());
+        atextPanel1 = new javax.swing.JPanel(new BorderLayout());
+        atextPanel2 = new javax.swing.JPanel(new BorderLayout());
+
+        adiscribeText = new javax.swing.JTextArea(" - Định nghĩa hàng đợi (queue): ", 10, 30);
+        adiscribeText.append("hàng đợi là một cấu trúc dữ liệu trừu tượng mà trong đó việc xóa dữ liệu được thực hiện ở dữ liệu đầu tiên được thêm vào");
+        adiscribeText.setLineWrap(true);
+        adiscribeText.setWrapStyleWord(true);
+
+        adiscribeText.setEditable(false);
+        adiscribeText.setEditable(false);
+
+        JScrollPane adiscribeTextScroll = new JScrollPane(adiscribeText);
+
+        arunningText = new javax.swing.JTextArea(10, 30);
+        arunningText.setLineWrap(true);
+        arunningText.setWrapStyleWord(true);
+        arunningText.setEditable(false);
+        JScrollPane arunningTextScroll = new JScrollPane(arunningText);
+
+        JLabel alabel = new JLabel("Định nghĩa");
+        atextPanel1.add(alabel, BorderLayout.NORTH);
+        atextPanel1.setBorder(getBorder());
+        atextPanel1.add(adiscribeTextScroll, BorderLayout.CENTER);
+
+        atextPanel2.add(arunningTextScroll);
+
+        atextPanel.add(atextPanel1, BorderLayout.NORTH);
+        atextPanel.add(atextPanel2, BorderLayout.SOUTH);
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -400,6 +462,8 @@ public class QueuePanel extends javax.swing.JPanel {
         );
 
         qArrayPanel.add(queueNorthPanel, java.awt.BorderLayout.NORTH);
+        qArrayPanel.add(atextPanel, BorderLayout.EAST);
+
 
         queuePane.addTab("Queue-Array", qArrayPanel);
 
@@ -434,22 +498,26 @@ public class QueuePanel extends javax.swing.JPanel {
                                 .addComponent(dequeueButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
                                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(resetButton2)
                                 .addGap(82, 82, 82))
         );
         queueNorthLinkedPanelLayout.setVerticalGroup(
                 queueNorthLinkedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(queueNorthLinkedPanelLayout.createSequentialGroup()
-                                .addContainerGap()
                                 .addGroup(queueNorthLinkedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(queueNorthLinkedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(resetButton2)
                                                 .addComponent(qListinputText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(qListEnqueueButton)
-                                                .addComponent( dequeueButton1)))
+                                                .addComponent(dequeueButton1)))
+
+
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         qLinkedPanel.add(queueNorthLinkedPanel, java.awt.BorderLayout.NORTH);
+        qLinkedPanel.add(textPanel, BorderLayout.EAST);
 
 
         queuePane.addTab("Queue-Linked", qLinkedPanel);
@@ -461,6 +529,7 @@ public class QueuePanel extends javax.swing.JPanel {
 
     private void dequeueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dequeueButtonActionPerformed
         String s = qA.dequeue();
+        arunningText.append("Mục (item): " + s + " bị xóa khỏi danh sách\n");
         if (s == null) {
             dequeueButton.setEnabled(false);
             JOptionPane.showMessageDialog(null, "Underflow: Queue Empty..!", "alert", JOptionPane.ERROR_MESSAGE);
@@ -480,7 +549,8 @@ public class QueuePanel extends javax.swing.JPanel {
             qArrayPanel.remove(qcomp);
         }
         if (!sizeText.getText().equals(" ")) {
-            sizeLabel.setText("Queue Size:   " + sizeText.getText());
+            sizeLabel.setText("Kích thước:   " + sizeText.getText());
+            arunningText.append("Độ dài của danh sách được khởi tạo là: " + sizeText.getText() + "\n");
 
             sizeButton.setEnabled(false);
             enqueueButton.setEnabled(true);
@@ -498,18 +568,25 @@ public class QueuePanel extends javax.swing.JPanel {
         sizeText.setText(null);
     }//GEN-LAST:event_sizeButtonActionPerformed
 
-    private void sizeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sizeTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sizeTextActionPerformed
-
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
-        sizeLabel.setText("Queue Size:   ");
+        sizeLabel.setText("Kích thước:   ");
         sizeButton.setEnabled(true);
         enqueueButton.setEnabled(false);
         dequeueButton.setEnabled(false);
         resetButton.setEnabled(false);
+        arunningText.setText("");
         qA.size = 0;
         qcomp.setValues(qA);
+    }//GEN-LAST:event_resetButtonActionPerformed
+
+
+    private void setResetButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
+        qListEnqueueButton.setEnabled(true);
+        dequeueButton1.setEnabled(false);
+        resetButton2.setEnabled(false);
+        runningText.setText("");
+        listA = new SingleLinkedList();
+        lcomp.setValues(listA, 0);
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void sizeTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sizeTextKeyPressed
@@ -521,7 +598,7 @@ public class QueuePanel extends javax.swing.JPanel {
                 qArrayPanel.remove(qcomp);
             }
             if (!sizeText.getText().equals(" ")) {
-                sizeLabel.setText("Queue Size:   " + sizeText.getText());
+                sizeLabel.setText("Kích thước:   " + sizeText.getText());
 
                 sizeButton.setEnabled(false);
                 enqueueButton.setEnabled(true);
@@ -547,6 +624,7 @@ public class QueuePanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Overflow: Queue Full..!", "alert", JOptionPane.ERROR_MESSAGE);
             enqueueButton.setEnabled(false);
         }
+        arunningText.append("Mục (item): " + qinputText.getText() + " được thêm vào danh sách\n");
         dequeueButton.setEnabled(true);
         qcomp.setValues(qA);
         qinputText.setText("");
@@ -556,14 +634,20 @@ public class QueuePanel extends javax.swing.JPanel {
     private void dequeueButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dequeueButton1ActionPerformed
         if (listA.first == null)
             JOptionPane.showMessageDialog(null, "Underflow: Queue Empty..!", "alert", JOptionPane.ERROR_MESSAGE);
-        else
+        else {
+            runningText.append("Mục (item): " + listA.first.data + " bị xóa khỏi danh sách\n");
             listA.delete(listA.first.data);
+
+        }
         lcomp.setValues(listA, 0);
     }//GEN-LAST:event_dequeueButton1ActionPerformed
 
     private void qListEnqueueButtonActionPerformed(java.awt.event.ActionEvent evt) {
 
         listA.insert(Integer.parseInt(qListinputText.getText()));
+        resetButton2.setEnabled(true);
+        dequeueButton1.setEnabled(true);
+        runningText.append("Mục (item): " + Integer.parseInt(qListinputText.getText()) + " được thêm vào danh sách\n");
         lcomp.setValues(listA, 1);
         qListinputText.setText("");
 
@@ -608,8 +692,19 @@ public class QueuePanel extends javax.swing.JPanel {
     private javax.swing.JPanel queueNorthPanel;
     private javax.swing.JTabbedPane queuePane;
     private javax.swing.JButton resetButton;
+    private javax.swing.JButton resetButton2;
     private javax.swing.JButton sizeButton;
     private javax.swing.JLabel sizeLabel;
     private javax.swing.JTextField sizeText;
+    private javax.swing.JPanel textPanel;
+    private javax.swing.JPanel textPanel1;
+    private javax.swing.JPanel textPanel2;
+    private javax.swing.JTextArea discribeText;
+    private javax.swing.JTextArea runningText;
+    private javax.swing.JPanel atextPanel;
+    private javax.swing.JPanel atextPanel1;
+    private javax.swing.JPanel atextPanel2;
+    private javax.swing.JTextArea adiscribeText;
+    private javax.swing.JTextArea arunningText;
     // End of variables declaration//GEN-END:variables
 }

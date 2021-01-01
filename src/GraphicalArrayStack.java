@@ -6,7 +6,7 @@ public class GraphicalArrayStack {
     String[] val;
     Line2D t;
     int top, count, size;
-    StackPanel s;
+    StackTab s;
 
     public GraphicalArrayStack(int size, int width, int height) {
         this.size = size;
